@@ -1,126 +1,159 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registration Form</title>
-	<style type="text/css">
-		body{
-			background: background: #c2e59c;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-border-color: red;
-background-image: #00416A;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		}
-	</style>
-	
-	<script type="text/javascript">
-		function verify()
-		{
-			var name = document.getElementById("name");
-			var gender = document.getElementsByName("gender");
-			var username = document.getElementById("username");
-			var pass = document.getElementById("pass");
-			var msg = new Array();
-			var flag = 1;
-			var message = "*****Following Datails are Required*****\n";
-			var message2 = "*****Following Datails are Required***** <br>";
-			if(name.value == "")
-			{
-				msg[0] = "Name is Required";
-				flag = 0;
-			}	else { msg[0] == ""; }
-			
-			if(gender[0].checked == false && gender[1].checked == false)
-			{
-				msg[1] = "Select Gender";
-				flag = 0 ;
-			}	else {msg[1] == ""; }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar scroll</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div>
+  <img src="https://images.hdqwalls.com/wallpapers/red-lamborghini-aventador-new-pn.jpg" width="400px bs-scroll-height">
+</div>
 
-			if(username.value == "")
-			{
-				msg[2] = "username is Required";
-				flag = 0 ;
-			}	else {msg[2] == "";}
-
-			if(pass.value == "")
-			{
-				msg[3] = " Password is Required";
-				flag = 0 ;
-			}	else {msg[3] == "";}
-
-			if(pass.value.length < 8)
-			{ 
-				msg[4] = " Password must be 8 character long ";
-			    flag = 0 ;
-			 } else { msg[4] = "";}
-
-			 if(flag == 0)
-			 {
-                 //Show Error Messages
-				//alert(msg[0]+'\n'+msg[1]+'\n'+msg[2]='\n'+msg[3]+'\n'+msg[4]+'\n');
-				//	return false;
-				 for(var x=0;x<=4;x++)
-				 {
-				 	if(msg[x] != "")
-				 	{
-				 		message	+= msg[x] + "\n";
-				 		message2 += msg[x] + "<br>";             
-				 	}
-				 }	 
-				 alert(message);
-				 document.getElementById("abc").innerHTML = message2 ;
-				 return false ;
-			 }
-			 else
-			 {
-			 	return true ;
-			 }
-		}
-	</script>
-</head>
-<body>
-
-<div align="center">
-	<br>
-	<br>
-	<br>
-	<h1>Registration Form</h1>
-	<h3 id="abc"></h3>
-	<form method="post" action="" onsubmit="return verify()">
-		<table border="2" cellspacing="5" cellpadding="10"> 
-			<tr>
-				<td colspan="2" align="center">*All field are mendatary*</td>
-			</tr>
-			<tr>
-			<td>Name :</td>
-			<td><input type="text" name="name" id="name" size="25" placeholder="Enter Name"/></td>
-		    </tr>
-		    <tr>
-		    	<td>Genter:</td>
-		    	<td><input type="radio" name="gender" value="Male"/> Male
-		    		<input type="radio" name="gender" value="Female"/> Female
-		    	</td>
-		    </tr>
-		    <tr>
-		    	<td>Username:</td>
-		    	<td><input type="text" name="username" id="username" size="25" placeholder="Enter Username"/></td>
-		    </tr>
-		    <tr>
-		    	<td>Password:</td>
-		    	<td><input type="password" name="password" size="25" id="pass" placeholder="Enter Password"/>
-		    	</td>
-		    </tr>
-		    <tr>
-		    	<td align="center" colspan="2">
-		    		<input type="submit" value="REGISTER"/>
-		    		<input type="reset" value="CLEAR"/>
-		    	</td>
-		    </tr>
-		</table>
-	</form>
+    <title>javascript</title>
+  </head>
+  <body>
+    <h1>mechanical eng</h1>
+    <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <img src="..">
 
 </div>
-</body>
+<div>
+  <div class="input-group mb-3">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+  <input type="text" class="form-control" aria-label="Text input with dropdown button">
+</div>
+
+<div class="input-group mb-3">
+  <input type="text" class="form-control" aria-label="Text input with dropdown button">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div class="input-group">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action before</a></li>
+    <li><a class="dropdown-item" href="#">Another action before</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+  <input type="text" class="form-control" aria-label="Text input with 2 dropdown buttons">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+  <div>
+    <div>
+  <div class="container">
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+    <div class="col">
+      <div class="p-3 border bg-light">Row column</div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+</div>
+  </body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set operation</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const myArray = [10,20,10,30,50,70,30];//Create Arrey
+		console.log(myArray);//Display Arrey
+		const mySet = new Set(myArray);//Create Set
+		console.log(mySet);//Display Set
+		console.log(mySet.size);//Display Set size
+		mySet.add(100);
+		mySet.delete(70);
+		console.log(mySet.has(10));
+		mySet.clear();
+		console.log(mySet);//Display Set
+	</script>
+
+</body>
+</html>
